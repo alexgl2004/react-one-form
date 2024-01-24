@@ -4,8 +4,8 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: #333333;
+  background-color: #ffffff;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -15,7 +15,7 @@
 
 a {
   font-weight: 500;
-  color: #646cff;
+  /*color: #646cff;*/
   text-decoration: inherit;
 }
 a:hover {
@@ -28,6 +28,7 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  box-sizing: border-box;
 }
 
 h1 {
@@ -46,13 +47,17 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
+
 button:hover {
-  border-color: #646cff;
+  border-color: #000;
 }
+
+/*
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
+*/
 
 @media (prefers-color-scheme: light) {
   :root {
@@ -66,3 +71,86 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+.login-text-form{
+  border:1px solid #ddd;
+  padding:0px 0 10px 0;
+  border-radius: 10px;
+  width:100%;
+}
+
+    .login-text-form .header{
+      display: flex;
+      justify-content: flex-end;
+      border:1px solid #ddd;
+      padding:5px 10px;
+      border-radius: 10px;
+      background: #a1d6f9;
+    }
+
+        .lang-show{
+          border:1px solid #aaa;
+          padding:5px;
+          border-radius:20px;
+        }
+
+    .textBlock{
+      margin:0px 20px;
+    }
+
+      h1{
+        font-size:20px;
+      }
+
+      .card{
+        font-size:15px;
+      }
+
+          .LoginText{
+            font-weight: bold;
+          }
+
+          .WarningText{
+            margin-top:20px;
+            color:red;
+          }
+
+          .WarningText.red{
+            color:red;
+          }
+
+          .WarningText.green{
+            color:green;
+          }               
+
+    .buttonBlock{
+      display:flex;
+      justify-content: space-around;
+    }
+
+        .buttonBlock > div{
+
+        }
+        .blockLeft{
+          text-align: left;
+        }
+        .blockRight{
+          text-align: right;
+        }
+
+            .buttonBlock > div button{
+              margin-bottom:10px;
+            }
+
+            button.red{
+              color:red;
+              background:#fff;
+              border:2px solid red;
+            }
+
+            button.green{
+              color:green;
+              background:#fff;
+              border:2px solid green;
+            }                
+

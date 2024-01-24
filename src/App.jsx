@@ -1,35 +1,81 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
+import {languages} from './data.js'
+
+export function EngBlock() {
+ return (<>
+
+ </>)
+}
+
 function App() {
-  const [count, setCount] = useState(0)
+
+  const [count, setCount] = useState(0);
+  
+  const [lang, setLang] = useState("DE");
+  const [login, setLogin] = useState('LOGIN');
+  const [loginName, setLoginName] = useState("Guest");
+/*  const [block, setBlockLang] = { EngBlock };????*/
+
+  
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div className="login-text-form">
+        <div className="header">
+          <div className="lang-show">
+            {lang}
+          </div>
+        </div>
+        <div className="textBlock">
+          <h1>{languages[lang]['H1']}</h1>
+          <div className="card">
+              <div className="LoginText">
+                {languages[lang][login]['Welcome_TEXT'].replace('#LOGIN#',loginName)}
+              </div>
+              <div className={login + " WarningText " + (login=='LOGIN' ? 'red' : 'green')}>
+                {languages[lang][login]['Warning_TEXT']}
+              </div>
+          </div>
+        </div>
+        <div className="buttonBlock">
+          <div className="blockLeft">
+            <div>
+              <button className={lang=='EN' ? 'green' : 'red'} onClick={() => setLang((lang) => 'EN' )}>
+                Switch to Englisch
+              </button>
+            </div>
+            <div>
+              <button className={lang=='DE' ? 'green' : 'red'} onClick={() => setLang((lang) => 'DE' )}>
+                Umschalten auf Deutch
+              </button>
+            </div>
+          </div>
+          <div className="blockRight">
+            <button className={login=='LOGIN' ? 'red' : 'green'} onClick={() => { 
+                if(login=='LOGIN'){
+                  setLogin((login) => 'LOGOUT'); 
+                  setLoginName((loginName) => 'Alex'); 
+                }else{
+                  setLogin((login) => 'LOGIN'); 
+                  setLoginName((loginName) => '');
+                }
+              }
+            }>
+              {login=="LOGIN" ? 'Login':'Logout'}
+            </button>
+          </div>
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   )
 }
 
 export default App
+
+/*          
+  <button onClick={() => setLang((lang) => lang=='DE' ? 'EN' : 'DE' )}>
+    {lang}
+  </button>
+*/          
