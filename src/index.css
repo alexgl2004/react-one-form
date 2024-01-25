@@ -129,8 +129,9 @@ button:focus-visible {
     }
 
         .buttonBlock > div{
-
+          margin:0 2px;
         }
+
         .blockLeft{
           text-align: left;
         }
